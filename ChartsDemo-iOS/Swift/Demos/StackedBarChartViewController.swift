@@ -104,6 +104,7 @@ class StackedBarChartViewController: DemoBaseViewController {
         set.drawIconsEnabled = false
         set.colors = [ChartColorTemplates.material()[0], ChartColorTemplates.material()[1], ChartColorTemplates.material()[2]]
         set.stackLabels = ["Births", "Divorces", "Marriages"]
+        set.cornerTargetColor = ChartColorTemplates.material()[2]
         
         let data = BarChartData(dataSet: set)
         data.setValueFont(.systemFont(ofSize: 7, weight: .light))

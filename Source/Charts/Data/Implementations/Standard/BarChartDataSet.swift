@@ -37,6 +37,8 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, BarChartData
 
     // MARK: - Data functions and accessors
     
+    public var cornerTargetColor: NSUIColor = NSUIColor.white
+    
     /// the maximum number of bars that are stacked upon each other, this value
     /// is calculated from the Entries that are added to the DataSet
     private var _stackSize = 1
