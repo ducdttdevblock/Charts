@@ -431,7 +431,16 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 context.setFillColor(dataSet.color(atIndex: j).cgColor)
             }
             
-            context.fill(barRect)
+            if dataSet.color(atIndex: j).isEqual(dataSet.cornerTargetColor) {
+                let cornerRadius: CGFloat = barRect.width * 0.25
+                let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                
+                let roundedPath = bezierPath.cgPath
+                context.addPath(roundedPath)
+                context.fillPath()
+            } else {
+                context.fill(barRect)
+            }
             
             if drawBorder
             {
