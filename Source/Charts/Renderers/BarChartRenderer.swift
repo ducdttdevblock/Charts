@@ -716,18 +716,32 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                 
                                 if dataSet.isDrawValuesEnabled
                                 {
-                                    drawValue(
-                                        context: context,
-                                        value: formatter.stringForValue(
-                                            vals[k],
-                                            entry: e,
-                                            dataSetIndex: dataSetIndex,
-                                            viewPortHandler: viewPortHandler),
-                                        xPos: x,
-                                        yPos: y,
-                                        font: valueFont,
-                                        align: .center,
-                                        color: dataSet.valueTextColorAt(index))
+                                    if vals.count == 3 && val == vals[2] {
+                                        drawValue(
+                                            context: context,
+                                            value: formatter.stringForValue(
+                                                vals.reduce(0, +),
+                                                entry: e,
+                                                dataSetIndex: dataSetIndex,
+                                                viewPortHandler: viewPortHandler),
+                                            xPos: x,
+                                            yPos: y,
+                                            font: valueFont,
+                                            align: .center,
+                                            color: dataSet.valueTextColorAt(index))
+                                    }
+//                                    drawValue(
+//                                        context: context,
+//                                        value: formatter.stringForValue(
+//                                            vals[k],
+//                                            entry: e,
+//                                            dataSetIndex: dataSetIndex,
+//                                            viewPortHandler: viewPortHandler),
+//                                        xPos: x,
+//                                        yPos: y,
+//                                        font: valueFont,
+//                                        align: .center,
+//                                        color: dataSet.valueTextColorAt(index))
                                 }
                                 
                                 if let icon = e.icon, dataSet.isDrawIconsEnabled
