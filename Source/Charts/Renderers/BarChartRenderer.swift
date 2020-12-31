@@ -716,7 +716,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                 
                                 if dataSet.isDrawValuesEnabled
                                 {
-                                    if vals.count == 5 && val == vals[4] {
+                                    if vals.count > 0 && val == vals.last {
                                         drawValue(
                                             context: context,
                                             value: formatter.stringForValue(

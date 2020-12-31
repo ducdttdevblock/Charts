@@ -78,6 +78,14 @@ class StackedBarChartViewController: DemoBaseViewController {
         sliderY.value = 100
         slidersValueChanged(nil)
         
+        let marker = BalloonMarker(color: UIColor(white: 180/255, alpha: 1),
+                                   font: .systemFont(ofSize: 12),
+                                   textColor: .white,
+                                   insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
+        marker.chartView = chartView
+        marker.minimumSize = CGSize(width: 80, height: 40)
+        chartView.marker = marker
+        
         self.updateChartData()
     }
     
